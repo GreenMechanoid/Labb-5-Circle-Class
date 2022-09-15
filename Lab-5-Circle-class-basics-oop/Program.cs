@@ -24,7 +24,7 @@ namespace Lab_5_Circle_class_basics_oop
                 Console.WriteLine("Do you want to calculate a Circle with a diffrent radius? Y/N");
                 UserChoice = Console.ReadKey(false).Key;
 
-                if (UserChoice == ConsoleKey.Y) CustomRadius = true; // checks if it's true or not, and flips the bool flag if it is
+                if (UserChoice == ConsoleKey.Y) CustomRadius = true; // checks if it's true or not, and flips the bool flag if user wants to input their own radius
 
             } while (UserChoice != ConsoleKey.Y && UserChoice != ConsoleKey.N);
 
@@ -41,7 +41,7 @@ namespace Lab_5_Circle_class_basics_oop
                         UserInput = Console.ReadLine();
                     }
                     radius = Convert.ToInt32(UserInput);
-                    Circle CalcTheCircleCustom = new Circle(radius);
+                    Circle CalcTheCircleCustom = new Circle(radius);  // uses the overloaded constructor to assign a diffrent radius inside the class
                     Console.WriteLine("The Area of a Circle with the Radius of "+radius+" is: " + CalcTheCircle.CalcCircle(radius));
                     
                     Console.WriteLine("Do you want to calculate a Circle with a diffrent radius? Y/N");
@@ -57,7 +57,7 @@ namespace Lab_5_Circle_class_basics_oop
                     CustomCounter++;
                         if (CustomCounter == 3)
                         {
-                            Console.Clear(); // clears the screen clutter after 3 circles, then resets counter
+                            Console.Clear(); // clears the screen clutter after 3 circles, then resets counter.
                             CustomCounter = 0;
                         }
                     }
@@ -76,20 +76,20 @@ namespace Lab_5_Circle_class_basics_oop
             int _Radius = 0;
 
 
-            public Circle() // standard constructor 
+            public Circle() // standard constructor with no changes to paramaters in the class
             {
-                
+                // empty opn purpose as we dont need to change anything in the class for the "forced" radius in the start of the code
             }
-            public Circle(int radius)  // makeing a overload for injecting radius from user, to calc more than radius of 5 or 6
+            public Circle(int radius)  // makeing a overload for injecting radius from user, to calc other than radius of 5 or 6
             {
-                this._Radius = radius;
+                this._Radius = radius; // set's objects _Radius, to the inputed radius from user in the "Custom" mode
             }
 
 
-            public float CalcCircle(int radius)   //declares a float to save the value, then returns it to Main after calculating
+            public float CalcCircle(int radius)   //declares a float method to save the value, then returns it to Main after calculating for printing 
             {
                 float MadeCircle;
-                MadeCircle = radius * radius * this._Pi;
+                MadeCircle = radius * radius * this._Pi; // using the saved _Pi variable from object creation
                 return MadeCircle;
             }
 
