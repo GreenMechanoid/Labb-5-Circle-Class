@@ -33,9 +33,9 @@ namespace Lab_5_Circle_class_basics_oop
                     UserInput = ""; // emptying the choice prior to user choosing the radius
                     Console.WriteLine("Hello and welcome to the Circle Radius Calculator");
 
-                    Console.WriteLine("The Area of a Circle with the Radius of 5 is: " + CalcTheCircle.CalcCircle(5));
+                    Console.WriteLine("The Area of a Circle with the Radius of 5 is: " + CalcTheCircle.GetArea(5));
                     Console.Write("\n");  // using Console.Write(New Line) for the fun of it, instead of using empty Console.WriteLine();
-                    Console.WriteLine("The Area of a Circle with the Radius of 6 is: " + CalcTheCircle.CalcCircle(6));
+                    Console.WriteLine("The Area of a Circle with the Radius of 6 is: " + CalcTheCircle.GetArea(6));
                     Console.Write("\n");
             do // asks user if they want to calculate a circle with another radius
             {
@@ -59,7 +59,7 @@ namespace Lab_5_Circle_class_basics_oop
                     }
                     radius = Convert.ToInt32(UserInput);
                     Circle CalcTheCircleCustom = new Circle(radius);  // uses the overloaded constructor to assign a diffrent radius inside the class
-                    Console.WriteLine("The Area of a Circle with the Radius of "+radius+" is: " + CalcTheCircle.CalcCircle(radius));
+                    Console.WriteLine("The Area of a Circle with the Radius of "+radius+" is: " + CalcTheCircle.GetArea(radius));
                     
                     Console.WriteLine("Do you want to calculate a Circle with a diffrent radius? Y/N");
                     UserChoice = Console.ReadKey(false).Key;
@@ -108,8 +108,8 @@ namespace Lab_5_Circle_class_basics_oop
                         UserInput = Console.ReadLine();
                     } while (int.TryParse(UserInput, out TriSide2) is false);
                     UserInput = ""; // emptying the input string for use in the next input.
-                    TriangleCalc CalcTheArea = new TriangleCalc(TriBase, TriSide1, TriSide2);
-                    Console.WriteLine("The area of your Triangle is: " + CalcTheArea.CalculateTriangle());
+                    TriangleCalc CalcTheTriangle = new TriangleCalc(TriBase, TriSide1, TriSide2);
+                    Console.WriteLine("The area of your Triangle is: " + CalcTheTriangle.GetArea());
                     break;
             }
             Console.WriteLine("Thanks for using this program, and good day to you.");
@@ -133,7 +133,7 @@ namespace Lab_5_Circle_class_basics_oop
             }
 
 
-            public float CalcCircle(int radius)   //declares a float method to save the value, then returns it to Main after calculating for printing 
+            public float GetArea(int radius)   //declares a float method to save the value, then returns it to Main after calculating for printing 
             {
                 float MadeCircle;
                 MadeCircle = radius * radius * this._Pi; // using the saved _Pi variable from object creation
@@ -155,7 +155,7 @@ namespace Lab_5_Circle_class_basics_oop
             }
 
 
-            public Double CalculateTriangle() // using Heron's Formula, Area = √s(s−a)(s−b)(s−c)   s = semi-perimeter which is: (a + b + c)/2
+            public Double GetArea() // using Heron's Formula, Area = √s(s−a)(s−b)(s−c)   s = semi-perimeter which is: (a + b + c)/2
             {
                 float SemiAreaOfTriangle = (this._TriBase + this._TriSide1 + this._TriSide2) / 2; // calculate the Semi-perimeter
                 float AreaOfTriangle = SemiAreaOfTriangle*(SemiAreaOfTriangle - _TriBase)*(SemiAreaOfTriangle - _TriSide1)* (SemiAreaOfTriangle - _TriSide2); // calculate the full area
