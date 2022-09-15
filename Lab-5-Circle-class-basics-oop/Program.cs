@@ -1,5 +1,5 @@
 ﻿using System;
-
+// Daniel Svensson .Net22
 namespace Lab_5_Circle_class_basics_oop
 {
     class Program
