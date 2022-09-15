@@ -14,7 +14,7 @@ namespace Lab_5_Circle_class_basics_oop
             int TriSide2 = 0;
             int CustomCounter = 0;
             bool CustomRadius = false; 
-            Circle CalcTheCircle = new Circle();
+            Circle CalcTheCircle = new Circle(5);
             
             ConsoleKey UserChoice;
 
@@ -33,9 +33,10 @@ namespace Lab_5_Circle_class_basics_oop
                     UserInput = ""; // emptying the choice prior to user choosing the radius
                     Console.WriteLine("Hello and welcome to the Circle Radius Calculator");
 
-                    Console.WriteLine("The Area of a Circle with the Radius of 5 is: " + CalcTheCircle.GetArea(5));
+                    Console.WriteLine("The Area of a Circle with the Radius of 5 is: " + CalcTheCircle.GetArea());
+                    CalcTheCircle = new Circle(6);
                     Console.Write("\n");  // using Console.Write(New Line) for the fun of it, instead of using empty Console.WriteLine();
-                    Console.WriteLine("The Area of a Circle with the Radius of 6 is: " + CalcTheCircle.GetArea(6));
+                    Console.WriteLine("The Area of a Circle with the Radius of 6 is: " + CalcTheCircle.GetArea());
                     Console.Write("\n");
             do // asks user if they want to calculate a circle with another radius
             {
@@ -58,8 +59,8 @@ namespace Lab_5_Circle_class_basics_oop
                         UserInput = Console.ReadLine();
                     }
                     radius = Convert.ToInt32(UserInput);
-                    Circle CalcTheCircleCustom = new Circle(radius);  // uses the overloaded constructor to assign a diffrent radius inside the class
-                    Console.WriteLine("The Area of a Circle with the Radius of "+radius+" is: " + CalcTheCircle.GetArea(radius));
+                    CalcTheCircle = new Circle(radius);  // uses the overloaded constructor to assign a diffrent radius inside the class
+                    Console.WriteLine("The Area of a Circle with the Radius of "+radius+" is: " + CalcTheCircle.GetArea());
                     
                     Console.WriteLine("Do you want to calculate a Circle with a diffrent radius? Y/N");
                     UserChoice = Console.ReadKey(false).Key;
@@ -122,21 +123,16 @@ namespace Lab_5_Circle_class_basics_oop
             float _Pi = 3.141f;
             int _Radius = 0;
 
-
-            public Circle() // standard constructor with no changes to paramaters in the class
+            public Circle(int radius)
             {
-                // empty opn purpose as we dont need to change anything in the class for the "forced" radius in the start of the code
-            }
-            public Circle(int radius)  // makeing a overload for injecting radius from user, to calc other than radius of 5 or 6
-            {
-                this._Radius = radius; // set's objects _Radius, to the inputed radius from user in the "Custom" mode
+                this._Radius = radius; // set's objects _Radius, to the inputed radius from user in the "Custom" mode and also the "forced" in start of code
             }
 
 
-            public float GetArea(int radius)   //declares a float method to save the value, then returns it to Main after calculating for printing 
+            public float GetArea()   //declares a float method to save the value, then returns it to Main after calculating for printing 
             {
                 float MadeCircle;
-                MadeCircle = radius * radius * this._Pi; // using the saved _Pi variable from object creation
+                MadeCircle = this._Radius * this._Radius * this._Pi; // using the saved _Pi variable from object creation
                 return MadeCircle;
             }
 
