@@ -5,7 +5,8 @@ namespace Lab_5_Circle_class_basics_oop
     class Program
     {
         static void Main(string[] args)
-        {
+        { 
+            // creating variables used in the code, and Zeroing them to "empty" but not Null
             int SwitchyChoise = 0;
             string UserInput = "";
             int radius;
