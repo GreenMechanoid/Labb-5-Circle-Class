@@ -47,7 +47,7 @@ namespace Lab_5_Circle_class_basics_oop
 
             } while (UserChoice != ConsoleKey.Y && UserChoice != ConsoleKey.N);
 
-            if (CustomRadius == true) 
+            if (CustomRadius == true) // checks if the radius is determined by user
             {
                 do
                 {
@@ -58,7 +58,7 @@ namespace Lab_5_Circle_class_basics_oop
                         Console.WriteLine("Please enter a Radius for the circle in whole numbers");
                         UserInput = Console.ReadLine();
                     }
-                    radius = Convert.ToInt32(UserInput);
+                    radius = int.Parse(UserInput);
                     CalcTheCircle = new Circle(radius);  // uses the overloaded constructor to assign a diffrent radius inside the class
                     Console.WriteLine("The Area of a Circle with the Radius of "+radius+" is: " + CalcTheCircle.GetArea());
                     
@@ -85,7 +85,7 @@ namespace Lab_5_Circle_class_basics_oop
                         }
                     }
                     
-                } while (CustomRadius == true);
+                } while (CustomRadius == true); // keeps going and pumping out circles until user says no.
             }
 
                     break;
@@ -123,7 +123,7 @@ namespace Lab_5_Circle_class_basics_oop
             float _Pi = 3.141f;
             int _Radius = 0;
 
-            public Circle(int radius)
+            public Circle(int radius) // constructor of class
             {
                 this._Radius = radius; // set's objects _Radius, to the inputed radius from user in the "Custom" mode and also the "forced" in start of code
             }
@@ -143,7 +143,7 @@ namespace Lab_5_Circle_class_basics_oop
             int _TriBase;
             int _TriSide1;
             int _TriSide2;
-            public TriangleCalc(int TriBase,int Triside1, int Triside2) // skipping zero paramater constructor. User input sides
+            public TriangleCalc(int TriBase,int Triside1, int Triside2) // skipping zero paramater constructor. User input sides only
             {
                 this._TriBase = TriBase;
                 this._TriSide1 = Triside1;
